@@ -1,0 +1,44 @@
+@media screen and (max-width: 415px) {
+    .header {
+        display: none;
+    }
+
+    .nav-menu {
+        ul {
+            justify-content: start;
+        }
+    }
+
+    #hero {
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .about-me,
+    .my-portfolio,
+    .my-projects {
+        h1 {
+            margin-left: 120px;
+            font-size: 3em;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        h4,
+        h5,
+        h6 {
+            font-size: 1.5em;
+        }
+    }
+
+    .my-projects {
+        img {
+            width: 100%;
+            height: 250px;
+        }
+    }
+}

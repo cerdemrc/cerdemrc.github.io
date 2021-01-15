@@ -1,0 +1,368 @@
+$satisfy : "Satisfy",
+serif;
+$raleway : "Raleway",
+sans-serif;
+
+$white : white;
+$black : black;
+$orange : orange;
+
+$header-image: "https://image.freepik.com/free-photo/hands-woman-with-cup-coffee-worked-her-laptop-work-home-concept_330667-5.jpg";
+
+@mixin title {
+    font-family: $satisfy;
+    font-size: 6em;
+    margin: 110px 150px;
+    text-align: center;
+}
+
+@mixin about-me {
+    font-family: $raleway;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+
+@mixin label {
+    label {
+        font-family: $raleway;
+        font-weight: bold;
+        margin-top: 5px;
+        font-size: 1.6em;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+
+.header {
+    z-index: 997;
+    transition: all 0.5s;
+    height: 40px;
+    background: $black;
+
+    & .header-transparent {
+        background: transparent;
+    }
+}
+
+.nav-menu,
+.nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu {
+    ul {
+        display: flex;
+        justify-content: center;
+
+        li {
+            position: relative;
+
+            .about {
+                transition: all .4s;
+            }
+        }
+    }
+
+    a {
+        display: block;
+        position: relative;
+        color: $white;
+        padding: 10px 15px;
+        transition: 0.3s;
+        font-size: 1.2em;
+        font-family: $raleway;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+
+        &:hover {
+            color: $orange;
+            text-decoration: none;
+        }
+    }
+}
+
+.to-top {
+    background-color: $white;
+    position: fixed;
+    bottom: 16px;
+    right: 32px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 3.2em;
+    color: $black;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s;
+
+    &.active {
+        bottom: 32px;
+        pointer-events: auto;
+        opacity: 1;
+        text-decoration: none;
+        background-color: $orange;
+        color: $white;
+    }
+}
+
+@media screen and(max-width: 450px) {
+    #hero {
+        background: url($header-image) top center;
+    }
+}
+
+@media screen and(min-width: 450px) {
+    #hero {
+        background: url($header-image) top right;
+    }
+}
+
+#hero {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+
+    &::before {
+        content: "";
+        background: rgba(0, 0, 0, 0.65);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    & .hero-container {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 15px;
+
+
+        & h1 {
+            margin: 0 0 10px 0;
+            font-size: 6.4em;
+            font-family: $satisfy;
+            color: $white;
+        }
+
+        & h2 {
+            color: $white;
+            margin-bottom: 50px;
+            font-size: 1.3em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        & .social {
+            & li a i {
+                margin-right: 6px;
+                font-size: 2.8rem;
+                color: $white;
+                transition: .1s all ease;
+
+                &:hover {
+                    color: $orange;
+                    font-size: 3.3rem;
+                }
+            }
+        }
+    }
+}
+
+.about-me {
+    h1 {
+        @include title;
+    }
+
+    h4 {
+        @include about-me;
+        font-size: 3em;
+        text-align: center;
+    }
+
+    h5 {
+        @include about-me;
+        text-align: center;
+        font-size: 2em;
+        margin-top: 30px;
+    }
+
+    h6 {
+        @include about-me;
+        text-align: right;
+        font-size: 2em;
+        margin-top: 80px;
+    }
+}
+
+.my-portfolio {
+    margin-top: 280px;
+
+    .content {
+        margin: -70px 70px 0px;
+    }
+
+    h1 {
+        @include title;
+    }
+
+    h2 {
+        font-family: $raleway;
+        font-weight: normal;
+        margin-top: 30px;
+        font-size: 2.5em;
+    }
+
+    .skills,
+    .ui-design {
+        @include label;
+    }
+
+    .tools {
+        .list-group {
+            justify-content: center;
+
+            .list-group-item {
+                font-family: $raleway;
+                font-weight: bold;
+                font-size: 1.6em;
+            }
+        }
+    }
+}
+
+.my-projects {
+    margin-top: 280px;
+
+    h1 {
+        @include title;
+    }
+
+    h2 {
+        font-family: $raleway;
+        font-weight: bold;
+        font-size: 2.3em;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    h3 {
+        font-family: $raleway;
+    }
+
+    .card {
+        border: 0;
+    }
+
+    img {
+        height: 320px;
+        width: 100%;
+        border-radius: 50px 2px 50px 2px;
+        transition: all 1s ease;
+
+        &:hover {
+            height: 330px;
+            width: 105%;
+        }
+    }
+
+    .links {
+        margin-top: 15px;
+
+        a {
+            display: block;
+            font-family: $satisfy;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: $orange;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 5px;
+
+            &:hover {
+                color: $black;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+section {
+    padding: 60px 0;
+}
+
+#footer {
+    background: $black !important;
+    margin-top: 100px;
+
+    h1 {
+        color: $white;
+        font-family: $satisfy;
+        word-spacing: 5px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    a {
+        color: $white;
+        text-decoration: none !important;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    & ul.social li {
+        padding: 3px 0;
+    }
+
+    & ul.social li a i {
+        margin-right: 5px;
+        font-size: 2.5em;
+        -webkit-transition: .5s all ease;
+        -moz-transition: .5s all ease;
+        transition: .1s all ease;
+    }
+
+    & ul.social li:hover a i {
+        font-size: 3em;
+        margin-top: -10px;
+    }
+
+    & ul.social li a {
+        color: $white;
+    }
+
+    & ul.social li a:hover {
+        color: $orange;
+    }
+}
